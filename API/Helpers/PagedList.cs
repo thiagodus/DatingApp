@@ -8,6 +8,11 @@ namespace API.Helpers
 {
     public class PagedList<T> : List<T>
     {
+        public int CurrentPage { get; set; }
+        public int TotalPages { get; set; }
+        public int PageSize { get; set; }
+        public int TotalCount { get; set; }
+        
         public PagedList(
             IEnumerable<T> items,
             int count, 
@@ -21,11 +26,6 @@ namespace API.Helpers
             TotalCount = count;
             AddRange(items);
         }
-
-        public int CurrentPage { get; set; }
-        public int TotalPages { get; set; }
-        public int PageSize { get; set; }
-        public int TotalCount { get; set; }
 
         public static async Task<PagedList<T>> CreateAsync(IQueryable<T> source, int pageNumber, int pageSize){
 
