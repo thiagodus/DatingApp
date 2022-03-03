@@ -47,6 +47,7 @@ namespace API.Extensions
                             }
 
                             return Task.CompletedTask;
+                            
                         }
                     };
                 });    

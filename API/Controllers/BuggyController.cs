@@ -23,7 +23,12 @@ namespace API.Controllers
             return "secret text";
         }
 
-        
+        [HttpGet("test")]
+        public ActionResult GetUser(){
+            var t = _context.Users;
+            return Ok(t);
+        }
+
         [HttpGet("not-found")]
         public ActionResult<AppUser> GetNotFound(){
             var thing = _context.Users.Find(-1);
